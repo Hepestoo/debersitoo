@@ -1,0 +1,41 @@
+<table border="1">
+    <tr>
+      <th>N_mascota</th>
+      <th>nombre</th>
+      <th>especie</th>
+      <th>edad</th>
+      <th>N_propietario</th>
+    
+    </tr>
+  
+    @for (mascota of mascotas; track mascota.id_mascota) {
+      <tr>
+        <td>{{ mascota.id_mascota }}</td>
+        <td>{{ mascota.nombre }}</td>
+        <td>{{ mascota.especie }}</td>
+        <td>{{ mascota.edad }}</td>
+        <td>{{ mascota.id_propietario }}</td>
+        <td>
+          <button (click)="eliminarMascota(mascota.id_mascota)">Eliminar</button>
+          <button (click)="editarMascota(mascota)">Editar</button>
+        </td>
+      </tr>
+    }
+  </table>
+<br>
+
+<form action="">
+    <label for="nombre">nombre</label>
+    <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre">
+    <label for="especie">especie</label>
+    <br>
+    <input type="text" id="especie" name="especie" [(ngModel)]="especie">
+    <br>
+    <label for="edad">edad</label>
+    <input type="text" id="edad" name="edad" [(ngModel)]="edad">
+    <br>
+    <label for="id_propietario">id_propietario</label>
+    <input type="text" id="id_propietario" name="id_propietario" [(ngModel)]="id_propietario">
+    <button (click)="crearMascota()">Guardar</button>
+    <button (click)="actualizarMascota()">actualizar</button>
+  </form>
